@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Churn Prediction</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 700px;
+            margin: 40px auto;
+        }
+        h1 {
+            text-align: center;
+        }
+        label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+        select, input[type="number"], button {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+        #result {
+            font-weight: bold;
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Churn Prediction</h1>
+
+    <form id="churnForm">
+        <label for="SeniorCitizen">Senior Citizen?</label>
+        <select name="SeniorCitizen" id="SeniorCitizen">
+            <option value="1">Yes</option>
+            <option value="0">No</option>
+        </select>
+
+        <label for="tenure">Tenure (months)</label>
+        <input type="number" name="tenure" id="tenure" required>
+
+        <label for="MonthlyCharges">Monthly Charges</label>
+        <input type="number" name="MonthlyCharges" id="MonthlyCharges" required>
+
+        <label for="TotalCharges">Total Charges</label>
+        <input type="number" name="TotalCharges" id="TotalCharges" required>
+
+        <label for="gender_Male">Male?</label>
+        <select name="gender_Male" id="gender_Male">
+            <option value="1">Yes</option>
+            <option value="0">No</option>
+        </select>
+
+        <label for="Partner_Yes">Partner?</label>
+        <select name="Partner_Yes" id="Partner_Yes">
+            <option value="1">Yes</option>
+            <option value="0">No</option>
+        </select>
+
+        <label for="Dependents_Yes">Dependents?</label>
+        <select name="Dependents_Yes" id="Dependents_Yes">
+            <option value="1">Yes</option>
+            <option value="0">No</option>
+        </select>
+
+        <label for="PhoneService_Yes">Phone Service?</label>
+        <select name="PhoneService_Yes" id="PhoneService_Yes">
+            <option value="1">Yes</option>
+            <option value="0">No</option>
+        </select>
+
+        <label for="MultipleLines_No phone service">No Phone Service?</label>
+        <select name="MultipleLines_No phone service" id="MultipleLines_No phone service">
+            <option value="1">Yes</option>
+            <option value="0">No</option>
+        </select>
+
+        <label for="MultipleLines_Yes">Multiple Lines?</label>
+        <select name="MultipleLines_Yes" id="MultipleLines_Yes">
+            <option value="1">Yes</option>
+            <option value="0">No</option>
+        </select>
+
+        <label for="InternetService_Fiber optic">Internet: Fiber Optic?</label>
+        <select name="InternetService_Fiber optic" id="InternetService_Fiber optic">
+            <option value="1">Yes</option>
+            <option value="0">No</option>
+        </select>
+
+        <label for="InternetService_No">Internet: None?</label>
+        <select name="InternetService_No" id="InternetService_No">
+            <option value="1">Yes</option>
+            <option value="0">No</option>
+        </select>
+
+        <label for="OnlineSecurity_No internet service">Online Security: No internet service?</label>
+        <select name="OnlineSecurity_No internet service" id="OnlineSecurity_No internet service">
+            <option value="1">Yes</option>
+            <option value="0">No</option>
+        </select>
+
+        <label for="OnlineSecurity_Yes">Online Security: Yes?</label>
+        <select name="OnlineSecurity_Yes" id="OnlineSecurity_Yes">
+            <option value="1">Yes</option>
+            <option value="0">No</option>
+        </select>
+
+        <label for="OnlineBackup_No internet service">Online Backup: No internet service?</label>
+        <select name="OnlineBackup_No internet service" id="OnlineBackup_No internet service">
+            <option value="1">Yes</option>
+            <option value="0">No</option>
+        </select>
+
+        <label for="OnlineBackup_Yes">Online Backup: Yes?</label>
+        <select name="OnlineBackup_Yes" id="OnlineBackup_Yes">
+            <option value="1">Yes</option>
+            <option value="0">No</option>
+        </select>
+
+        <label for="DeviceProtection_No internet service">Device Protection: No internet service?</label>
+        <select name="DeviceProtection_No internet service" id="DeviceProtection_No internet service">
+            <option value="1">Yes</option>
+            <option value="0">No</option>
+        </select>
+
+        <label for="DeviceProtection_Yes">Device Protection: Yes?</label>
+        <select name="DeviceProtection_Yes" id="DeviceProtection_Yes">
+            <option value="1">Yes</option>
+            <option value="0">No</option>
+        </select>
+
+        <label for="TechSupport_No internet service">Tech Support: No internet service?</label>
+        <select name="TechSupport_No internet service" id="TechSupport_No internet service">
+            <option value="1">Yes</option>
+            <option value="0">No</option>
+        </select>
+
+        <label for="TechSupport_Yes">Tech Support: Yes?</label>
+        <select name="TechSupport_Yes" id="TechSupport_Yes">
+            <option value="1">Yes</option>
+            <option value="0">No</option>
+        </select>
+
+        <label for="StreamingTV_No internet service">Streaming TV: No internet service?</label>
+        <select name="StreamingTV_No internet service" id="StreamingTV_No internet service">
+            <option value="1">Yes</option>
+            <option value="0">No</option>
+        </select>
+
+        <label for="StreamingTV_Yes">Streaming TV: Yes?</label>
+        <select name="StreamingTV_Yes" id="StreamingTV_Yes">
+            <option value="1">Yes</option>
+            <option value="0">No</option>
+        </select>
+
+        <label for="StreamingMovies_No internet service">Streaming Movies: No internet service?</label>
+        <select name="StreamingMovies_No internet service" id="StreamingMovies_No internet service">
+            <option value="1">Yes</option>
+            <option value="0">No</option>
+        </select>
+
+        <label for="StreamingMovies_Yes">Streaming Movies: Yes?</label>
+        <select name="StreamingMovies_Yes" id="StreamingMovies_Yes">
+            <option value="1">Yes</option>
+            <option value="0">No</option>
+        </select>
+
+        <label for="Contract_One year">Contract: One year?</label>
+        <select name="Contract_One year" id="Contract_One year">
+            <option value="1">Yes</option>
+            <option value="0">No</option>
+        </select>
+
+        <label for="Contract_Two year">Contract: Two year?</label>
+        <select name="Contract_Two year" id="Contract_Two year">
+            <option value="1">Yes</option>
+            <option value="0">No</option>
+        </select>
+
+        <label for="PaperlessBilling_Yes">Paperless Billing?</label>
+        <select name="PaperlessBilling_Yes" id="PaperlessBilling_Yes">
+            <option value="1">Yes</option>
+            <option value="0">No</option>
+        </select>
+
+        <label for="PaymentMethod_Credit card (automatic)">Payment Method: Credit card (automatic)?</label>
+        <select name="PaymentMethod_Credit card (automatic)" id="PaymentMethod_Credit card (automatic)">
+            <option value="1">Yes</option>
+            <option value="0">No</option>
+        </select>
+
+        <label for="PaymentMethod_Electronic check">Payment Method: Electronic check?</label>
+        <select name="PaymentMethod_Electronic check" id="PaymentMethod_Electronic check">
+            <option value="1">Yes</option>
+            <option value="0">No</option>
+        </select>
+
+        <label for="PaymentMethod_Mailed check">Payment Method: Mailed check?</label>
+        <select name="PaymentMethod_Mailed check" id="PaymentMethod_Mailed check">
+            <option value="1">Yes</option>
+            <option value="0">No</option>
+        </select>
+
+        <button type="submit">Predict Churn</button>
+    </form>
+
+    <div id="result"></div>
+
+    <script>
+        document.getElementById('churnForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+
+            const formData = new FormData(this);
+            const jsonData = {};
+
+            formData.forEach((value, key) => {
+                jsonData[key] = Number(value);
+            });
+
+            const response = await fetch('http://localhost:5000/predict', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(jsonData)
+            });
+
+            const data = await response.json();
+            document.getElementById('result').innerText = `Churn Probability: ${(data.churn_probability * 100).toFixed(2)}%`;
+        });
+    </script>
+</body>
+</html>

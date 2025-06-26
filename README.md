@@ -1,25 +1,38 @@
-# Customer Churn Prediction with a Live Web API
+# Customer Churn Prediction with a Live Web API and Deployed Frontend
 
-This project demonstrates a complete end-to-end machine learning workflow. It involves training a logistic regression model to predict customer churn based on the Telco Customer Churn dataset, and then deploying that model via a REST API built with Flask.
+This project demonstrates a complete end-to-end machine learning workflow using the Telco Customer Churn dataset. It includes model training, a Flask-based API for predictions, and a live web-based frontend for user interaction.
 
-The final goal is to create a simple web frontend where a user can input customer data and receive a live churn prediction from the trained model.
+🎯 Try the live demo:  
+👉 [Customer Churn Predictor (GitHub Pages)](https://jajo9147.github.io/Customer-Churn-Prediction/)
 
-## Project Components
+---
 
-* **`churn_prediction_model.ipynb`**: A Jupyter Notebook containing all steps for data loading, exploratory data analysis (EDA), data preprocessing, model training, and evaluation.
-* **`app.py`**: A Flask web server that loads the trained model and scaler, and exposes a `/predict` endpoint to serve predictions.
-* **`churn_model.joblib`**: The saved, pre-trained Scikit-learn model object.
-* **`scaler.joblib`**: The saved Scikit-learn StandardScaler object used to preprocess the data.
+## 📦 Project Components
 
-## Technologies Used
+| File/Folder | Description |
+|-------------|-------------|
+| `churn_prediction_model.ipynb` | Jupyter Notebook for data loading, EDA, preprocessing, model training, and evaluation |
+| `app.py` | Flask API that loads the trained model and exposes a `/predict` endpoint |
+| `churn_model.joblib` | Saved Scikit-learn logistic regression model |
+| `scaler.joblib` | Saved Scikit-learn StandardScaler used during training |
+| `inspect_model_features.ipynb` | Helper notebook to verify scaler/model input expectations |
+| `docs/index.html` | Interactive HTML frontend deployed via GitHub Pages |
+| `requirements.txt` | Python dependencies to run the API |
 
-* **Data Science & ML:** Python, Pandas, NumPy, Scikit-learn, Joblib
-* **API & Backend:** Flask, Flask-CORS
-* **Environment:** Jupyter Notebook
+---
 
-## How to Run
+## 🔧 Technologies Used
 
-1.  **Clone the repository.**
-2.  **Install dependencies:** `pip install -r requirements.txt`
-3.  **Run the API:** `python app.py`
-4.  The server will be running at `http://127.0.0.1:5000`.
+- **Machine Learning:** Scikit-learn, Pandas, NumPy
+- **Backend:** Python, Flask, Flask-CORS
+- **Frontend:** HTML, JavaScript
+- **Deployment:** GitHub Pages (static site)
+
+---
+
+## 🚀 How to Run Locally
+
+1. **Clone the repo:**
+   ```bash
+   git clone https://github.com/jajo9147/Customer-Churn-Prediction.git
+   cd Customer-Churn-Prediction
